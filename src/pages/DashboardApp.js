@@ -173,7 +173,7 @@ export default function DashboardApp() {
               title="Traffic by Site"
               list={[
                 {
-                  name: 'FaceBook',
+                  name: 'Facebook',
                   value: 323234,
                   icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} height={32} />,
                 },
@@ -183,7 +183,7 @@ export default function DashboardApp() {
                   icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} height={32} />,
                 },
                 {
-                  name: 'Linkedin',
+                  name: 'LinkedIn',
                   value: 411213,
                   icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} height={32} />,
                 },
