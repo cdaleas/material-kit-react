@@ -27,17 +27,17 @@ const CoverImgStyle = styled('img')({
 
 // ----------------------------------------------------------------------
 
-PostCard.propTypes = {
+LandingCard.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export default function PostCard({ post }) {
-  const { cover, title, description, postLink } = post;
+export default function LandingCard({ post }) {
+  const { cover, title, description, link } = post;
 
   return (
     <Link
       underline="none"
-      href={postLink}
+      href={link}
     >
       <Card sx={{ position: 'relative' }}>
         <CardMediaStyle
@@ -48,11 +48,14 @@ export default function PostCard({ post }) {
               width: '100%',
               height: '100%',
               position: 'absolute',
-              bgcolor: (theme) => alpha(theme.palette.grey[900], 0.5),
+              bgcolor: (theme) => alpha(theme.palette.grey[700], 0.4),
             },
             pt: {
-              xs: 'calc(100% * 4 / 3)',
-              sm: 'calc(100% * 3 / 4.66)',
+              xs: 'calc(100% * 3 / 4)',
+              sm: 'calc(100% * 3 / 5)',
+              md: 'calc(100% * 3 / 6)',
+              lg: 'calc(100% * 3 / 9)',
+              xl: 'calc(100% * 3 / 12)',
             },
           }}
         >
@@ -67,22 +70,33 @@ export default function PostCard({ post }) {
             position: 'absolute',
           }}
         >
-          <Typography
-            gutterBottom
-            variant="subtitle2"
-            sx={{ color: 'text.disabled', display: 'block' }}
-          >
-            {description}
-          </Typography>
-
+          
           <TitleStyle
             color="inherit"
-            underline="hover"
-            href={postLink}
-            sx={{ typography: 'h4', height: 60, color: 'common.white' }}
+            underline="none"
+            sx={{
+              typography: 'h2',
+              color: 'common.white'
+            }}
           >
             {title}
           </TitleStyle>
+
+          <Typography
+            sx={{
+              color: 'common.white',
+              overflow: 'hidden',
+              WebkitLineClamp: 3,
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              typography: {
+                xs: 'subtitle1',
+                sm: 'h6'
+              }
+            }}
+          >
+            {description}
+          </Typography>
         </CardContent>
       </Card>
     </Link>

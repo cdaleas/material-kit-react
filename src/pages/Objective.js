@@ -1,17 +1,30 @@
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
-import { Grid, Container, Paper } from '@mui/material';
+import { Grid, Container, Typography, Paper } from '@mui/material';
 // components
 import Page from '../components/Page';
+import Iconify from '../components/Iconify';
 // sections
 import {
+  AppTasks,
   AppNewsUpdate,
+  AppOrderTimeline,
+  AppCurrentVisits,
+  AppWebsiteVisits,
+  AppTrafficBySite,
+  AppWidgetSummary,
+  AppCurrentSubject,
+  AppConversionRates,
 } from '../sections/@dashboard/app';
 import PostCard from '../sections/home/PostCard';
-import LandingCard from '../sections/home/LandingCard';
 import AppWidgetCard from '../sections/home/AppWidgetCard';
 
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const CARD = {
   id: faker.datatype.uuid(),
@@ -21,40 +34,43 @@ const CARD = {
   postLink: `/discover`,
 };
 
-const LANDING = {
-  id: faker.datatype.uuid(),
-  cover: `/static/mock-images/covers/cover_16.jpg`,
-  title: `Bienvenue sur EviFli`,
-  description: `Un coach intelligent qui t'accompagne pour atteindre tes objectifs :
-  Forme, 
-  Santé, 
-  Sport, 
-  Environnement`,
-  postLink: null,
-};
-
 // ----------------------------------------------------------------------
 
-export default function Home() {
+export default function Objective() {
   const theme = useTheme();
 
   return (
-    <Page title="Home">
-      <Container>
-        <Grid container maxWidth="lg" spacing={3} alignItems="center">
-        
-          <Grid item xs={12}>        
-            <LandingCard key={LANDING.id} post={LANDING} index={0} />
-          </Grid>
+    <Page title="Objective">
+      <Container maxWidth="xl">
+        <Typography variant="h3" sx={{ mb: 4 }}>
+          Bienvenue sur EviFli
+        </Typography>
+        <Typography variant="subtitle1" sx={{ mb: 2 }}>
+          L'application qui te permet d'atteindre tes objectifs de vie.
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mb: 1 }}>
+          - Vivre sainement
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mb: 1 }}>
+          - Faire attention à notre planète
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mb: 1 }}>
+          - Être plus en forme
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mb: 5 }}>
+          - Moins polluer
+        </Typography>
+
+        <Grid container spacing={3} alignItems="center">
           <Grid item xs={12} sm={6}>
-            <AppWidgetCard title="Choisir mon objectif" cardLink="/objective" color="error" icon={'ant-design:fire-filled'} />
+            <AppWidgetCard title="Choisir mon objectif" cardLink="/objective" icon={'ant-design:fire-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6}>
             <AppWidgetCard title="Découvrir les abonnements" cardLink="/plan" color="warning" icon={'ant-design:shop-filled'} />
           </Grid>
           
-          <Grid item xs={12}>
+          <Grid item xs={12} lg={6}>
             <PostCard key={CARD.id} post={CARD} index={0} />
           </Grid>
 

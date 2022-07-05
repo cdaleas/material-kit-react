@@ -5,6 +5,7 @@ import HomeLayout from './layouts/home';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import Home from './pages/Home';
+import Objective from './pages/Objective';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import Login from './pages/Login';
@@ -32,6 +33,13 @@ export default function Router() {
       element: <HomeLayout />,
       children: [
         { path: '', element: <Home /> },
+      ],
+    },
+    {
+      path: '/objective',
+      element: <HomeLayout />,
+      children: [
+        { path: '', element: <Objective /> },
       ],
     },
     {
